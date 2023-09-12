@@ -17,7 +17,7 @@ You will also need a notification daemon if you are not using a desktop environm
 
 ### Installation
 ```
-git clone https://gitlab.com/devnore/headsetcontrol-notificationd.git
+git clone https://github.com/Razuuu/headsetcontrol-notificationd.git
 cd headsetcontrol-notificationd
 
 sudo cp headsetcontrol-notificationd.service /etc/systemd/user/headsetcontrol-notificationd.service

@@ -19,28 +19,28 @@ update() {
 
   case ${_battery} in
     "Charging")
-      notify-send "${_model}" "Charger connected!"
+      notify-send --app-name "${_model}" "${_model}" "Charger connected!"
       return
       ;;
     0)
-      notify-send "${_model}" "Disconnected"
+      notify-send --app-name "${_model}" "${_model}" "Disconnected"
       return
       ;;
     *)
       if [[ "${_old_battery}" == "Charging" ]]; then
-        notify-send "${_model}" "Charger disconnected!"
+        notify-send --app-name "${_model}" "${_model}" "Charger disconnected!"
       elif [[ ${_old_battery} -eq 0 ]]; then
-        notify-send "${_model}" "Connected! \n Battery level ${_battery}%" --icon=battery
+        notify-send --app-name "${_model}" "${_model}" "Connected! \n Battery level ${_battery}%" --icon=battery
         return
       fi
       if (( _battery <= _thresholdEmpty )); then
-        notify-send "${_model}" "Low" --icon=battery-low
+        notify-send --app-name "${_model}" "${_model}" "Low" --icon=battery-low
         return
       elif (( _battery <= _thresholdWarning )); then
-        notify-send "${_model}" "Depetion" --icon=battery-caution
+        notify-send --app-name "${_model}" "${_model}" "Depetion" --icon=battery-caution
         return
       else
-        notify-send "${_model}" "Battery level ${_battery}%" --icon=battery
+        notify-send --app-name "${_model}" "${_model}" "Battery level ${_battery}%" --icon=battery
         return
       fi
       ;;
